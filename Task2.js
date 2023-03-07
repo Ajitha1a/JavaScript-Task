@@ -57,27 +57,23 @@ for(let char of removedSpecialCharName){
 }
 console.log("count of each letter",letterCounts)
   
-  let mostCommon = null;
-  let leastCommon = null;
-  let maxCount = 0;
-  let minCount = Infinity;
-  for (const char in letterCounts) {
-    const count = letterCounts[char];
-    if (count > maxCount) {
-      mostCommon = char;
-      maxCount = count;
-    }
-    if (count < minCount) {
-      leastCommon = char;
-      minCount = count;
-    }
-  }
-   var mostCommons = mostCommon;
-    var leastCommons = leastCommon
+let counts = Object.values(letterCounts);
+// console.log(counts);
+let maxCount = Math.max(...counts);
+console.log(maxCount);
+let minCount = Math.min(...counts);
+console.log(minCount);
+
+let mostCommon = Object.keys(letterCounts).find(key => letterCounts[key] === maxCount);
+let leastCommon = Object.keys(letterCounts).filter(key => letterCounts[key] === minCount);
+
 // Example usage
 
 console.log("Most common", mostCommon);
 console.log("Least common", leastCommon);
+
+
+
 
 // Task 4 :
 // Create a program that takes in a string and returns an object that contains the count of each character in the string.
