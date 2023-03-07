@@ -40,5 +40,58 @@ const products = [{
 
 
 
-  var name = "Apple";
-  console.log(maxchar("Apple"));
+// Task 3:
+// Create a program that takes in a string and returns an object that contains the count of each letter in the string.
+//  The program should also output the most common letter and the least common letter.
+// Input: “Twitter Blue has it all, be it editing tweets, posting longer videos, or flaunting your verification badge! But it still fails to solve the one trivial issue, which is advertisements.”
+var name = "Twitter Blue has it all, be it editing tweets, posting longer videos, or flaunting your verification badge! But it still fails to solve the one trivial issue, which is advertisements.";
+  
+var removedSpecialCharName = name.replace(/[^\w\s]|_/g, "").replace(/\s+/g, "").toLowerCase(); // removing special characters & converting to lowercase
+console.log("removedSpecialCharName",removedSpecialCharName);
+
+const letterCounts = {};
+
+for(let char of removedSpecialCharName){
+  // console.log(char);
+  letterCounts[char] = letterCounts[char] ? letterCounts[char] + 1 : 1;
+}
+console.log("count of each letter",letterCounts)
+  
+  let mostCommon = null;
+  let leastCommon = null;
+  let maxCount = 0;
+  let minCount = Infinity;
+  for (const char in letterCounts) {
+    const count = letterCounts[char];
+    if (count > maxCount) {
+      mostCommon = char;
+      maxCount = count;
+    }
+    if (count < minCount) {
+      leastCommon = char;
+      minCount = count;
+    }
+  }
+   var mostCommons = mostCommon;
+    var leastCommons = leastCommon
+// Example usage
+
+console.log("Most common", mostCommon);
+console.log("Least common", leastCommon);
+
+// Task 4 :
+// Create a program that takes in a string and returns an object that contains the count of each character in the string.
+// Input: “Twitter Blue has it all, be it editing tweets, posting longer videos, or flaunting your verification badge! But it still fails to solve the one trivial issue, which is advertisements.”
+
+let letterstring = "Twitter Blue has it all, be it editing tweets, posting longer videos, or flaunting your verification badge! But it still fails to solve the one trivial issue, which is advertisements."
+
+let cleanedString = letterstring.replace(/[^\w\s]|_/g, "");
+console.log(cleanedString)
+
+let stringObj = {};
+
+for(let char of cleanedString){
+  // console.log("char",char);
+  stringObj[char] = stringObj[char] ? stringObj[char] + 1 : 1;
+}
+console.log(stringObj);
