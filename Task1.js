@@ -14,7 +14,7 @@
 
     for (var i=0; i < parasplit.length; i++) {
       var word = parasplit[i];
-      console.log(word);
+      // console.log(word);
       if (output[word] === undefined) {
         output[word] = 1;
       } else {
@@ -29,9 +29,9 @@
     Object.keys(output).forEach(word => {
       console.log(word);
       const count = output[word];
-      console.log("count",count);
+      // console.log("count",count);
       const frequency = (count / totalwordsPara) * 100;
-      console.log("frequency",frequency);
+      // console.log("frequency",frequency);
       frequencyWord[word] = frequency
     });
     console.log(frequencyWord);
